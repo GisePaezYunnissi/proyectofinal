@@ -6,9 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { PeliculasInfoComponent } from './components/peliculas-info/peliculas-info.component';
 import { PeliculasListComponent } from './components/peliculas-list/peliculas-list.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { MoviesComponent } from './components/movies/movies.component';
 
 
 @NgModule({
@@ -16,9 +16,9 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    PeliculasInfoComponent,
     PeliculasListComponent,
-    CarritoComponent
+    CarritoComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
