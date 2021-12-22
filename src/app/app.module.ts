@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { PeliculasListComponent } from './components/peliculas-list/peliculas-list.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { MoviesComponent } from './components/movies/movies.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MoviesComponent } from './components/movies/movies.component';
     RegisterComponent,
     PeliculasListComponent,
     CarritoComponent,
-    MoviesComponent
+    MoviesComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
