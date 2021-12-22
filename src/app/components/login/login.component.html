@@ -1,0 +1,29 @@
+<h1 class="m-3 col-lg-3">Ingresa en tu cuenta</h1>
+<form class="m-3 col-lg-3"[formGroup]="userForm">
+  <div class="form-group">
+    <label for="usuario" class="form-label">Usuario</label>
+    <input type="text" class="form-control" id="usuario" name="usuario" formControlName="usuario">
+    <div *ngIf="usuarioControl.invalid && (usuarioControl.dirty || usuarioControl.touched)" class="alert alert-danger">
+      <div *ngIf="usuarioControl.hasError('required')">
+        El usuario es requerido
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="contraseña" class="form-label">Contraseña</label>
+    <input type="password" class="form-control" id="contraseña" name="contraseña" formControlName="contraseña">
+    <span id="passwordHelpInline" class="form-text">
+      Debe tener entre 8 y 10 caracteres.
+    </span>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Mostrar contraseña</label>
+  </div>
+  <br>
+  <br>
+  <button type="submit" class="btn btn-primary"[disabled]="!userForm.valid">Loguear</button>
+  <br>
+  <br>
+</form>
+
