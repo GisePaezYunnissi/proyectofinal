@@ -6,11 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { PeliculasListComponent } from './components/peliculas-list/peliculas-list.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { HooksComponent } from './components/hooks/hooks.component';
+import { PersonaListComponent } from './components/persona-list/persona-list.component';
+import { PersonaItemComponent } from './components/persona-item/persona-item.component';
 
 
 @NgModule({
@@ -18,11 +19,12 @@ import { HooksComponent } from './components/hooks/hooks.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    PeliculasListComponent,
     CarritoComponent,
     MoviesComponent,
     MenuComponent,
-    HooksComponent
+    HooksComponent,
+    PersonaListComponent,
+    PersonaItemComponent
   ],
   imports: [
     BrowserModule,
