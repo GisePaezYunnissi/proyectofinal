@@ -1,7 +1,3 @@
-<app-persona-item
-  *ngFor="let persona of personas; let i = index"
-  [persona]="persona"
-  [class.selected]="isSelected(persona)"
-  [class.last-element]= "(personas.length - 1) === i"
+<app-persona-item [persona]="persona" [class.selected]="isSelected(persona)" *ngFor="let persona of personas"
   (click)="clickPersona(persona)">
 </app-persona-item>

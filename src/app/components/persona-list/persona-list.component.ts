@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, QueryList, SimpleChanges, ViewChild, ViewChildren } from '@angular/core';
 import { Persona } from 'src/app/models/persona.model';
+import { PersonaItemComponent } from '../persona-item/persona-item.component';
 
 @Component({
   selector: 'app-persona-list',
@@ -14,6 +15,8 @@ export class PersonaListComponent implements OnInit, AfterViewInit, OnDestroy, O
   selectedPersona: Persona = { nombre: '', apellido: '' };
 
   constructor() { }
+
+  @ViewChildren(PersonaItemComponent) personaItems: QueryList<PersonaItemComponent> | any;
 
 
   ngOnInit(): void {
