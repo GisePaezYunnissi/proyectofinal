@@ -12,6 +12,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { HooksComponent } from './components/hooks/hooks.component';
 import { PersonaListComponent } from './components/persona-list/persona-list.component';
 import { PersonaItemComponent } from './components/persona-item/persona-item.component';
+import { MiCuentaComponent } from './components/mi-cuenta/mi-cuenta.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PersonaItemComponent } from './components/persona-item/persona-item.com
     MenuComponent,
     HooksComponent,
     PersonaListComponent,
-    PersonaItemComponent
+    PersonaItemComponent,
+    MiCuentaComponent
   ],
   imports: [
     BrowserModule,
