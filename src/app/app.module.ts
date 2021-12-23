@@ -10,6 +10,7 @@ import { PeliculasListComponent } from './components/peliculas-list/peliculas-li
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { HooksComponent } from './components/hooks/hooks.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MenuComponent } from './components/menu/menu.component';
     PeliculasListComponent,
     CarritoComponent,
     MoviesComponent,
-    MenuComponent
+    MenuComponent,
+    HooksComponent
   ],
   imports: [
     BrowserModule,
