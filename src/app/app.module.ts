@@ -13,6 +13,9 @@ import { HooksComponent } from './components/hooks/hooks.component';
 import { PersonaListComponent } from './components/persona-list/persona-list.component';
 import { PersonaItemComponent } from './components/persona-item/persona-item.component';
 import { MiCuentaComponent } from './components/mi-cuenta/mi-cuenta.component';
+import { InfoComponent } from './components/info/info.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -26,13 +29,16 @@ import { MiCuentaComponent } from './components/mi-cuenta/mi-cuenta.component';
     HooksComponent,
     PersonaListComponent,
     PersonaItemComponent,
-    MiCuentaComponent
+    MiCuentaComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

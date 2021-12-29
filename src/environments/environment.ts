@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  moviesRestApi: 'https://61bcb65dd8542f0017824990.mockapi.io/api/'
+  moviesRestApi: 'https://61cc87ca198df60017aec126.mockapi.io/api/'
 };
 
 /*

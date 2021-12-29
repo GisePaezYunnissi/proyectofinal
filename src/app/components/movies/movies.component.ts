@@ -21,7 +21,7 @@ export class MoviesComponent implements OnInit {
       this.movieService.getList().subscribe( movies => this.movies = movies);
     }
 
-    navigateToDetail(id: string) {
+    navigateToInfo(id: string) {
       this.router.navigate(['peliculas', id]);
     }
 

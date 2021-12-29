@@ -23,14 +23,13 @@ export class PersonaListComponent implements OnInit, AfterViewInit, OnDestroy, O
     console.log('>>> PERSONA-LIST - ON INIT');
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     console.log('>>> PERSONA-LIST - AFTER VIEW INIT');
   }
 
   ngOnDestroy(): void {
       console.log('>>> PERSONA-LIST - ON DESTROY');
   }
-
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('>>> PERSONA-LIST - ON CHANGES', changes);

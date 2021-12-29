@@ -1,10 +1,7 @@
-<div class="movie-container">
-<div *ngFor="let movie of movies" class="card" style="width: 18rem;" >
-    <img [src]="movie.image.url" class="card-img-top" alt="">
-    <div class="card-body">
-      <h5 class="card-title">{{ movie.title }}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a class="btn btn-primary" (click)="navigateToDetail(movie.id)">+ Info</a>
-    </div>
-  </div>
-</div>
+<div class="row">
+  <div class="movie-container d-flex flex-wrap justify-content-center">
+    <mat-card class="example-card m-5" *ngFor="let movie of movies"  style="width: 18rem;">
+      <mat-card-header style="display: flex; justify-content: center;align-items: center;height: 50px; text-align: center;">
+        <h3 class="card-title" style="font-weight: bolder;">{{movie.title}}</h3>
+      </mat-card-header>
+      <img mat-card-image [src]= "movie.image" alt="" style="height: 400px">;

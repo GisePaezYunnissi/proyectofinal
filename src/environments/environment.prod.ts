@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  moviesRestApi: 'https://61bcb65dd8542f0017824990.mockapi.io/api/persons'
+  moviesRestApi: 'https://61cc87ca198df60017aec126.mockapi.io/api/'
 };
