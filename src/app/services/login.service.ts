@@ -9,14 +9,13 @@ import { environment } from 'src/environments/environment';
 })
 export class userService {
 
-private url = environment.usersRestApi + 'users'
+private url = environment.movieRestApi + 'users'
 
   constructor( private httpClient: HttpClient) { }
 
 
   validateUser(user: string, password:string): Observable<Boolean>{
-    return this.httpClient.post<boolean>(this.url, {user,
-      password});
+    return this.httpClient.post<boolean>(this.url, {user,password});
     }
 
     addUser(user: User){

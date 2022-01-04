@@ -6,8 +6,8 @@ import { Movie } from '../models/movie.model';
 import { MovieAPI, MoviesAPI } from '../models/movieAPI.model';
 import { moviesMock } from './movies.mock';
 
-@Injectable()
-  //{providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'})
 export class MovieService {
 
   private url = environment.moviesApi;
@@ -21,7 +21,14 @@ export class MovieService {
   getListAPI(): Observable<MoviesAPI> {
     return this.httpClient.get<MoviesAPI>(this.url);
   }
-getInfo(id: string): Observable<Movie | undefined> {
-    return of(moviesMock.find(movie => movie.id === id))
- }
+
+  getInfo(id: string): Observable<MoviesAPI> {
+    return this.httpClient.get<MoviesAPI>(this.url)
+    //of(moviesMock.find(movie => movie.id === id))
+  }
+
+  //addCart(id: string): Observable<Movie[]>{
+
+  //}
+
 }

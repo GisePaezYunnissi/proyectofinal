@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MiCuentaComponent } from '../mi-cuenta/mi-cuenta.component';
+//import { MiCuentaComponent } from '../mi-cuenta/mi-cuenta.component';
 
 
 @Component({

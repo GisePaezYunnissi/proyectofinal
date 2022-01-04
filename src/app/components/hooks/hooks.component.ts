@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Persona } from 'src/app/models/persona.model';
-import { PersonService } from 'src/app/services/person.service';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-hooks',
@@ -15,13 +15,13 @@ export class HooksComponent implements OnInit, OnDestroy, AfterViewInit {
   private subscription: Subscription | undefined;
 
   constructor(
-    private personssService: PersonService
+    private registersService: RegisterService
   ) {
     console.log('HOOK - CONSTRUCTOR');
   }
 
   ngOnInit(): void {
-    this.subscription = this.personssService.getList().subscribe(
+    this.subscription = this.registersService.getList().subscribe(
       persons => persons = this.persons = persons);
 
       console.log('HOOK - ON INIT');

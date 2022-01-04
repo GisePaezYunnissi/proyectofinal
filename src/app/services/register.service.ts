@@ -7,9 +7,9 @@ import { Persona } from '../models/persona.model';
 @Injectable({
   providedIn: 'root'
 })
-export class PersonService {
+export class RegisterService {
 
-  private url = environment.personsRestApi + 'persons';
+  private url = environment.movieRestApi + 'persons';
 
   constructor(
     private httpClient: HttpClient
@@ -20,6 +20,6 @@ export class PersonService {
   }
 
   getById(id:string): Observable<Persona> {
-    return this.httpClient.get<Persona>('${this.url}/${id}');
+    return this.httpClient.get<Persona>(`${this.url}/${id}`);
   }
 }
