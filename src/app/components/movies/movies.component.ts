@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { Movie } from 'src/app/models/movie.model';
+import { Subscription } from 'rxjs';
+import { MovieAPI} from 'src/app/models/movieAPI.model';
+import { CartService } from 'src/app/services/cart.service';
 import { MovieService } from 'src/app/services/movie.service';
+//import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-movies',
@@ -12,17 +15,30 @@ export class MoviesComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private router: Router
+    private router: Router,
+    public cartService: CartService
     ) { }
 
-    movies: Movie[] = [];
+    private subscription: Subscription | undefined;
+    movies: MovieAPI[] = [];
 
     ngOnInit(): void {
-      this.movieService.getList().subscribe( movies => this.movies = movies);
+      //traigo las películas desde el mock
+      // this.movieService.getList().subscribe( movies => this.movie = movies);
+
+      //Traigo las películas desde la API
+      this.movieService.getListAPI().subscribe(response => {
+        this.movies = response.results;
+        console.log(this.movies)
+      });
+    }
+    //Nos desuscribimos
+    ngOnDestroy(): void {
+      this.subscription?.unsubscribe();
     }
 
-    navigateToInfo(id: string) {
-      this.router.navigate(['peliculas', id]);
+    moreInfo(id: number) {
+      this.router.navigate(['movies', id]);
     }
 
   }

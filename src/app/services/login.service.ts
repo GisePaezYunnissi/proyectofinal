@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class userService {
 
-private url = environment.moviesRestApi + 'users'
+private url = environment.usersRestApi + 'users'
 
   constructor( private httpClient: HttpClient) { }
 

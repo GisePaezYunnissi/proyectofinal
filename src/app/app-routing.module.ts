@@ -28,10 +28,10 @@ const routes: Routes = [
     path: 'mi-cuenta',
     component: MiCuentaComponent
   },
-  {
-    path: 'hooks',
-    component: HooksComponent
-  }
+  //{
+    //path: 'hooks',
+   // component: HooksComponent
+  //}
 ];
 
 @NgModule({

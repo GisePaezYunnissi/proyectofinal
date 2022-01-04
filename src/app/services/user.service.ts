@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class UsersService {
-private url = environment.moviesRestApi + 'persons'
+private url = environment.personsRestApi+ 'persons'
   validateUser: any;
   constructor(private httpClient: HttpClient)  {}
 
