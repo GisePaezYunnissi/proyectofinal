@@ -1,4 +1,11 @@
-<h1>Detalle</h1>
-<p>{{movie?.id}}</p>
-<h2>{{movie?.title}}</h2>
-<p>{{movie?.year}}</p>
+<div class="row">
+  <h1>Info</h1>
+  <div class="card " style="width: 18rem;" >
+    <img style=" display:block; width: 60%; margin: 0px auto;" class="card-img-top mb-5 mb-md-0" [src]= "urlPath+movie.poster_path" alt="#Imagen" />
+    <div class="card-body">
+      <h5 class="card-title">{{movie.title}}</h5>
+<p>{{movie.Plot}}</p>
+<br>
+<!--<button button type="button" class="btn btn-success"   (click)="addToCart()">Rent</button>-->
+  </div>
+</div>

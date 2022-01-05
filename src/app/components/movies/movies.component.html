@@ -4,4 +4,6 @@
       <mat-card-header style="display: flex; justify-content: center;align-items: center;height: 50px; text-align: center;">
         <h3 class="card-title" style="font-weight: bolder;">{{movie.title}}</h3>
       </mat-card-header>
-      <img mat-card-image [src]= "" alt="" style="height: 400px">;
+      <img mat-card-image [src]= "urlImage + movie.poster_path" alt="" style="height: 400px">;
+<button  mat-raised-button color="primary" style="display:block; margin: 0px auto; width: 95%;" (click)="details(movie.id)">Descripción</button>
+<!--<button  mat-raised-button color="primary" style="display:block; margin: 0px auto; width: 95%;" (click)="addToCart()">Agregar al carrito</button>-->

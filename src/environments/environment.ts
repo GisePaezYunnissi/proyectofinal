@@ -1,12 +1,18 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
   production: false,
+  //peliculas
   moviesApi:'https://api.themoviedb.org/3/discover/movie?api_key=fd31753f3bac10778d2c67b3ea7f76d2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate',
   apiKey:'fd31753f3bac10778d2c67b3ea7f76d2',
-  movieRestApi: 'https://61cc87ca198df60017aec126.mockapi.io/',
+
+  //Api imagen
+  imgApi:'https://image.tmdb.org/t/p/w500/',
+
+  //Api usurios
+  movieRestApi: 'https://61cc87ca198df60017aec126.mockapi.io/api/',
+  //Api cart
+  urlApi: 'https://61cc87ca198df60017aec126.mockapi.io/api/',
+
+  cartRestApi:'http://localhost:3000/api/'
 };
 
 /*

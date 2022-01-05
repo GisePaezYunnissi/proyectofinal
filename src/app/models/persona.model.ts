@@ -3,4 +3,5 @@ export interface Persona {
   apellido: string;
   edad?: number;
   email?:string;
+  id?: string
 }
