@@ -1,47 +1,66 @@
-<h1 class="m-3 col-lg-3">Registrate</h1>
-<form [formGroup]="personaForm" class="m-3 col-lg-3">
-  <div class="form-group">
-    <label for="nombre">Nombre</label>
-    <input type="text" id="nombre" name="nombre" class="form-control" formControlName="nombre">
-    <div *ngIf="nombreControl.invalid && (nombreControl.dirty || nombreControl.touched)" class="alert alert-danger">
-      <div *ngIf="nombreControl.hasError('required')">
-        El nombre es requerido
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-5">
+            <div class="login-wrap">
+              <div class=" icon d-flex align-items-center justify-content-center">
+              </div>
+<h2 class="m-3 col-lg-3">Registrate</h2>
+<form [formGroup]="newUserForm" action="#" class="signup-form">
+  <div class="form-group mb-3">
+    <label for="userName">Username</label>
+    <input type="text" id="userName" name="userName" class="form-control" formControlName="userName">
+    <div *ngIf="userControl.invalid && (userControl.dirty || userControl.touched)" class="alert alert-danger">
+      <div *ngIf="userControl.hasError('required')">
+        User is required
       </div>
-      <div *ngIf="nombreControl.hasError('minlength')">
-        El nombre debe ser de 3 o más caracteres
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="apellido">Apellido</label>
-    <input type="text" id="apellido" name="apellido" class="form-control" formControlName="apellido">
-    <div *ngIf="apellidoControl.invalid && (apellidoControl.dirty || apellidoControl.touched)" class="alert alert-danger">
-      <div *ngIf="apellidoControl.hasError('required')">
-        El apellido es requerido
+      <div *ngIf="userControl.hasError('minlength')">
+        The username must be at least 3 characters long
       </div>
     </div>
   </div>
-  <div class="form-group">
-    <label for="edad">Edad</label>
-    <input type="text" id="edad" name="edad" class="form-control" formControlName="edad">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email" class="form-control" formControlName="email">
-    <div *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)" class="alert alert-danger">
-      <div *ngIf="emailControl.hasError('required')">
-        El mail es requerido
+  <div class="form-group mb-3">
+    <label for="userMail">Email</label>
+    <input type="text" id="userMail" name="userMail" class="form-control" formControlName="userMail">
+    <div *ngIf="mailControl.invalid && (mailControl.dirty || mailControl.touched)" class="alert alert-danger">
+      <div *ngIf="mailControl.hasError('required')">
+        Email is requiered
       </div>
-      <div *ngIf="emailControl.hasError('email')">
-        Debe contener @
+      <div *ngIf="mailControl.hasError('Email')">
+        Email type is required
       </div>
     </div>
   </div>
-  <br>
-  <br>
-  <button type="submit" class="btn btn-primary"[disabled]="!personaForm.valid"(click)="guardar()">Guardar</button>
-  <br>
-  <br>
-  <button type="submit"class="btn btn-primary" (click)="volver()">Volver</button>
+  <div class="form-group mb-3">
+    <label class="label" for="password">Password</label>
+    <input id="password1" type="password1" class="form-control" formControlName="password1" placeholder="Password1">
+    <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+    <div *ngIf="passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)" class="alert alert-danger">
+      <div  *ngIf="passwordControl.hasError('required')">Password is requiered</div>
+      <div *ngIf="passwordControl.hasError('minlength')">The password must be at least 8 characters long</div>
+    </div>
+</div>
+<div class="form-group mb-3">
+    <label class="label" for="password">Confirm Password</label>
+    <input id="passwordConfirm" type="password" class="form-control"  formControlName="passwordConfirm" placeholder="Confirm Password">
+    <span toggle="#passwordConfirm" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+    <span class="icon fa fa-lock"></span>
+    <div *ngIf="passwordConfirmControl.invalid && (passwordConfirmControl.dirty || passwordConfirmControl.touched)" class="alert alert-danger">
+      <div  *ngIf="passwordConfirmControl.hasError('required')">Password is requiered</div>
+    </div>
+</div>
+<div class="form-group">
+    <button type="submit" class="form-control btn btn-primary rounded submit px-3" (click)=" createUser()"[disabled]="!newUserForm.valid">Sign Up</button>
+</div>
 </form>
+<br>
+    <p>I'm already a member!   <a    routerLinkActive="active" routerLink="/login" >Sign In</a></p>
+    <!-- <button type="submit"class="btn btn-primary" (click)="volver()">Volver</button> -->
+    </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
 

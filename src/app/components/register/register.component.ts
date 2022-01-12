@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { User } from 'src/app/models/user.model';
+import { RegisterService } from 'src/app/services/register.service';
+import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
-//import { MiCuentaComponent } from '../mi-cuenta/mi-cuenta.component';
+
 
 
 @Component({
@@ -11,30 +15,50 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  personaForm = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    apellido: new FormControl('',[Validators.required]),
-    edad: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email])
-  });
-
-  nombreControl = this.personaForm.controls['nombre'];
-  apellidoControl = this.personaForm.controls['apellido'];
-  emailControl = this.personaForm.controls['email'];
-
   constructor(
+    private userService: UserService,
+    private registerService: RegisterService,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    //this.personaForm.valueChanges.subscribe(values => console.log('value changes',values));
-    this.personaForm.controls['nombre'].valueChanges.subscribe(values => console.log('value changes',values));
-    this.personaForm.controls['apellido'].valueChanges.subscribe(values => console.log('value changes',values));
+  //Suscripción
+  private subscription = new Subscription;
 
+  user:User[] = []
+
+  ngOnInit(): void {
+    this.subscription.add(this.userService.getUserList().subscribe(user=>this.user=user))
   }
 
-  guardar(){
-    console.log(this.personaForm.value);
+  newUserForm=new FormGroup({
+    //Voy agregando los controles
+    userName: new FormControl('',[Validators.required]),
+    userMail: new FormControl('',[Validators.email,Validators.required]),
+    password1: new FormControl('',[Validators.required,Validators.minLength(8)]),
+    passwordConfirm:new FormControl('',[Validators.required]),
+  });
+
+
+  userControl=this.newUserForm.controls['userName'];
+  mailControl=this.newUserForm.controls['userMail'];
+  passwordControl=this.newUserForm.controls['password1'];
+  passwordConfirmControl=this.newUserForm.controls['passwordConfirm'];
+
+
+  createUser(){
+    if (this.passwordControl.value === this. passwordConfirmControl.value ){
+      const name=this.userControl.value;
+      const mail= this.mailControl.value;
+      const password= this.passwordControl.value;
+      const role="user";
+      this.subscription.add(this.registerService.createUser(name,mail,password).subscribe(response=>console.log(response)));
+      this.newUserForm.reset();
+
+    alert("Registro exitoso")
+    }
+    else{
+      alert("Las contraseñas no coinciden")
+    }
   }
 
   volver(){
@@ -42,4 +66,8 @@ export class RegisterComponent implements OnInit {
     console.log("Volver");
   }
 
+  ngOnDestroy(): void {
+    //Nos desuscribimos
+  this.subscription.unsubscribe();
+  }
 }

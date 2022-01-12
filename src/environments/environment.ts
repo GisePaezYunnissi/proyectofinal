@@ -8,7 +8,7 @@ export const environment = {
   imgApi:'https://image.tmdb.org/t/p/w500/',
 
   //Api usurios
-  movieRestApi: 'https://61cc87ca198df60017aec126.mockapi.io/api/',
+  usersRestApi: 'https://61cc87ca198df60017aec126.mockapi.io/api/',
   //Api cart
   urlApi: 'https://61cc87ca198df60017aec126.mockapi.io/api/',
 

@@ -1,24 +1,33 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
-import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class userService {
+export class LoginService {
 
-private url = environment.movieRestApi + 'users'
+  users:User[] = [];
 
-  constructor( private httpClient: HttpClient) { }
+  constructor(
+    private userService: UserService) {
+      //le asigna al array usuario la rta del observador
+      this.userService.getUserList().subscribe(response => this.users = response);
+     }
 
-
-  validateUser(user: string, password:string): Observable<Boolean>{
-    return this.httpClient.post<boolean>(this.url, {user,password});
-    }
-
-    addUser(user: User){
-      this.httpClient.post(`${this.url}users`, user);
-    }
+  getUsers():User[]{
+       // Devuelve el array de usuario
+    return this.users;
   }
+
+  validateUser(user: string, password:string): Boolean{
+    var response: boolean = false;
+
+    this.users.forEach(users => {
+      if (users.user === user && users.password === password) {
+        response= true;
+      }
+    });
+    return response;
+  }
+}
