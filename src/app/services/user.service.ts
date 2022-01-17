@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-private url = environment.usersRestApi + 'users';
+private url = environment.ApiMockMovies + 'users';
 
   constructor (
     //Inyecto httpClient

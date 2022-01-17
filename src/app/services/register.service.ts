@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RegisterService {
 
-  private url = environment.usersRestApi + 'users';
+  private url = environment.ApiMockMovies + 'users';
 
   constructor(
     private httpClient: HttpClient

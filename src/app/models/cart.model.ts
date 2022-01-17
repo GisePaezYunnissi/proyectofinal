@@ -1,7 +1,7 @@
-export interface Cart{
+export interface ICart{
     id: string,
     title: string,
     url: string,
-   imdbID: number,
+    imdbID: string,
     price: number,
   }

@@ -24,25 +24,26 @@ export class LoginComponent implements OnInit, OnDestroy {
   userForm=new FormGroup({
     //voy agregando los controles
     user: new FormControl('',[Validators.required]),
-    password: new FormControl('',[Validators.required,Validators.minLength(8)]),
+    password: new FormControl('',[Validators.required]),
   });
 
-  //Para controlar el form
-  userControl=this.userForm.controls['user'];
-  passwordControl=this.userForm.controls['password'];
 
   loginValidate() {
-    const valid = this.loginService.validateUser(this.userControl.value, this.passwordControl.value)
-    if (valid) {
-      this.router.navigate(['peliculas']);
-    }
-    else {
-      alert("User or password not valid, try again")
-      // resetea el formulario
-      this.userForm.reset();
-      console.log(this.loginService.getUsers());
-    };
+    console.log (this.userForm.controls['user'].value,this.userForm.controls['password'].value);
 
+    const valid = this.loginService.validateCredentials(this.userForm.controls['user'].value,this.userForm.controls['password'].value).subscribe(
+      valid => {
+        if (valid) {
+          this.router.navigate(['peliculas']);
+        }
+        else {
+          alert("User or password not valid, try again")
+          // resetea el formulario
+          this.userForm.reset();
+          console.log(this.loginService.getUsers());
+        };
+      }
+    )
   }
 
   ngOnDestroy(): void {

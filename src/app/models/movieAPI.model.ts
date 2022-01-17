@@ -1,23 +1,47 @@
 export interface MovieAPI {
-  adult: boolean;
-  backdrop_path: string;
-  id: number;
-  genre_ids: number[],
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
+  Title: string,
+  Year : string,
+  imdbID : string,
+  Type : string,
+  Poster : string
+}
+export interface Movie {
+  Search : MovieAPI[],
+  totalResults : string,
+  Response : string
+
 }
 
-export interface MoviesAPI {
-page: number;
-results: MovieAPI[];
-total_pages: number;
-total_results: number;
+export interface IUniqueMovie {
+  Actors: string,
+  Awards: string,
+  BoxOffice: string,
+  Country: string,
+  DVD: string,
+  Director: string,
+  Genre: string,
+  Language: string,
+  Metascore: string,
+  Plot: string,
+  Poster: string,
+  Production: string,
+  Rated: string,
+  Ratings: IRating[],
+  Released: string,
+  Response: string,
+  Runtime: string,
+  Title: string,
+  Type: string,
+  Website: string,
+  Writer: string,
+  Year: string,
+  imdbID: string,
+  imdbRating: string,
+  imdbVotes: string,
+
+}
+
+export interface IRating {
+  Source: string,
+  Value: string,
 }

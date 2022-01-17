@@ -1,16 +1,18 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 //import { Movie } from '../models/movie.model';
-import { MovieAPI, MoviesAPI } from '../models/movieAPI.model';
+import { Movie, MovieAPI } from '../models/movieAPI.model';
 //import { moviesMock } from './movies.mock';
 
 @Injectable({
   providedIn: 'root'})
 export class MovieService {
 
-  private url = environment.moviesApi;
+  private movie = "Fast and Furious";
+  private union = '?s=';
+  private url = environment.moviesApi + this.union + this.movie + environment.keyApi;
 
   //Inyecto el HttpClient
   constructor(
@@ -18,17 +20,13 @@ export class MovieService {
   ) { }
 
   //Traigo las películas desde la API
-  getListAPI(): Observable<MoviesAPI> {
-    return this.httpClient.get<MoviesAPI>(this.url);
+  getListAPI(id: number): Observable<Movie> {
+    let params = new HttpParams().append('page', String(id));
+    return this.httpClient.get<Movie>(this.url,{params});
   }
 
-  getInfo(id: string): Observable<MoviesAPI> {
-    return this.httpClient.get<MoviesAPI>(this.url)
+  getInfo(id: string): Observable<MovieAPI> {
+    return this.httpClient.get<MovieAPI>(this.url)
     //of(moviesMock.find(movie => movie.id === id))
   }
-
-  //addCart(id: string): Observable<Movie[]>{
-
-  //}
-
 }
