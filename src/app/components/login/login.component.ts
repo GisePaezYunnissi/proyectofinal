@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           alert("User or password not valid, try again")
           // resetea el formulario
           this.userForm.reset();
-          console.log(this.loginService.getUsers());
+          //console.log(this.loginService.getUsers());
         };
       }
     )

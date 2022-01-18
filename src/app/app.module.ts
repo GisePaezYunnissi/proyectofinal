@@ -13,11 +13,12 @@ import { HooksComponent } from './components/hooks/hooks.component';
 import { PersonaListComponent } from './components/persona-list/persona-list.component';
 import { PersonaItemComponent } from './components/persona-item/persona-item.component';
 import { MiCuentaComponent } from './components/mi-cuenta/mi-cuenta.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 import { MoviesInfoComponent } from './components/movies-info/movies-info.component';
 import { MostViewComponent } from './components/most-view/most-view.component';
 import { MostViewAdminComponent } from './components/most-view-admin/most-view-admin.component';
+import { InterceptorService } from './interceptors/interceptor.service';
 
 
 @NgModule({
@@ -44,7 +45,11 @@ import { MostViewAdminComponent } from './components/most-view-admin/most-view-a
     HttpClientModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
