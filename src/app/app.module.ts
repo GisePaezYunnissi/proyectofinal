@@ -48,7 +48,10 @@ import { InterceptorService } from './interceptors/interceptor.service';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService, multi:true}
+      useClass: InterceptorService,
+      multi:true
+      //Hace que este pendiente de todos los cambios que hagamos
+    }
   ],
   bootstrap: [AppComponent]
 })

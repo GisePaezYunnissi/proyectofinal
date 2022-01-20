@@ -1,11 +1,12 @@
+<div class="container"></div>
 <div class="row">
-  <!-- <h1>Info</h1> -->
   <div class="card " style="width: 18rem;" >
     <img [src]="uniquemovie.Poster" class="img-fluid rounded-start" alt="movie poster">
     <div class="card-body">
       <h4 class="card-title">{{uniquemovie.Title}}</h4>
       <p class="card-text">{{uniquemovie.Plot}}</p>
   </div>
+  <button button type="button" class="btn-agregarAlCarrito"   (click)="addToCart()">Add to cart</button>
 </div>
-<button button type="button" class="btn btn-success"   (click)="addToCart()">Rent</button>
+
 

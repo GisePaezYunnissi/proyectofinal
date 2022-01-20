@@ -1,13 +1,10 @@
 export const environment = {
   production: false,
-  //peliculas
-  //moviesApi:'https://api.themoviedb.org/3/discover/movie?api_key=fd31753f3bac10778d2c67b3ea7f76d2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate',
-  //apiKey:'fd31753f3bac10778d2c67b3ea7f76d2',
-  //imgApi:'https://image.tmdb.org/t/p/w500/',
-
+  //Peliculas
   moviesApi: 'http://www.omdbapi.com/',
   keyApi: '&apikey=8070bceb',
 
+  //Carrito
   cartRestApi:'http://localhost:3000/api/',
 
   //MockApi

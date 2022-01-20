@@ -13,6 +13,17 @@ export class MostViewComponent implements OnInit {
   //Variable contenedora
   allMovies : MockMovies[] = [];
 
+  movie: MockMovies = {
+    id: '',
+    title: '',
+    premiere: 0,
+    gender: '',
+    adultsOnly: false,
+    description: '',
+    image: ''
+  }
+
+  //Variable subscripción
   private subscription = new Subscription;
 
   constructor(
@@ -21,9 +32,11 @@ export class MostViewComponent implements OnInit {
 
   ngOnInit(): void {
     //Le pasamos todas las peliculas que tenemos al array de pelis
-    this.subscription.add(this.mostViewService.getMovies().subscribe(movies => {
-      this.allMovies = movies;
-      console.log(this.allMovies);
-    }))
+    this.subscription.add(this.mostViewService.getMovies()
+      .subscribe(movies => {
+        this.allMovies = movies;
+        console.log(this.allMovies);
+    }));
   }
+
 }

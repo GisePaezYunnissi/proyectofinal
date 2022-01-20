@@ -9,12 +9,13 @@ import { MostViewComponent } from './components/most-view/most-view.component';
 import { MoviesInfoComponent } from './components/movies-info/movies-info.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AdminRoleGuardGuard } from './guards/admin-role-guard.guard';
 import { ProtectedGuardGuard } from './guards/protected-guard.guard';
 
 const routes: Routes = [
   {
     path: 'admin',
-    canActivate: [ProtectedGuardGuard],
+    canActivate: [AdminRoleGuardGuard],
     component: MostViewAdminComponent
   },
   {
@@ -22,15 +23,6 @@ const routes: Routes = [
     canActivate: [ProtectedGuardGuard],
     component: MostViewComponent
   },
-  {
-    path: 'cart',
-    canActivate: [ProtectedGuardGuard],
-    component: CarritoComponent
-  },
- /*  {
-    path: 'detalle',
-    loadChildren: () => import('./components/movies/movies.component').then(m => m.MoviesComponent)
-  }, */
   {
     path: 'login',
     component: LoginComponent
@@ -40,21 +32,30 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'peliculas/:id',
-    //canActivate: [ProtectedGuardGuard],
-    component: MoviesInfoComponent
-  },
-  {
     path: 'peliculas',
-    //canActivate: [ProtectedGuardGuard],
+    canActivate: [ProtectedGuardGuard],
     component: MoviesComponent
   },
   {
-    path: 'mi-cuenta',
+    path: 'peliculas/:id',
     canActivate: [ProtectedGuardGuard],
-    component: MiCuentaComponent
+    component: MoviesInfoComponent
+  },
+  {
+    path: 'cart',
+    canActivate: [AdminRoleGuardGuard],
+    component: CarritoComponent
   },
 
+ /*  {
+    path: 'detalle',
+    loadChildren: () => import('./components/movies/movies.component').then(m => m.MoviesComponent)
+  },
+   {
+    path: 'mi-cuenta',
+    //canActivate: [ProtectedGuardGuard],
+    component: MiCuentaComponent
+  }, */
 ];
 
 @NgModule({

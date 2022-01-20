@@ -1,6 +1,6 @@
 <!-- Formulario de edicion -->
 
-<section class="update"> <h1>{{updateTitle}}</h1> <form [formGroup]="updateForm">
+<section class="update col-lg-6"> <h1>{{updateTitle}}</h1> <form [formGroup]="updateForm">
     <!-- id -->
     <div class="form-group mb-3 update"><input type="text" aria-label="id" class="form-control"
         placeholder="Movie's id" formControlName="id"></div>
@@ -39,7 +39,7 @@
 
 <!-- Formulario de creacion -->
 
-<section class="create">
+<section class="create col-lg-6">
   <h2>{{createTitle}}</h2>
   <form [formGroup]="createForm">
 
@@ -104,7 +104,6 @@
       <div *ngIf="createForm.controls['adultsOnly'].hasError('required')">Adults Only is required</div>
     </div>
 
-    <!-- FALTA HACER EL DESABILE DEL BOTON -->
     <div class="btn-create">
       <button type="submit" class="btn btn-primary" (click)="createMovie()"[disabled]="!createForm.valid" >Send</button>
     </div>
@@ -113,7 +112,7 @@
 
 <!-- Formulario de eliminacion de pelicula -->
 
-<section>
+<section class="col-lg-6">
   <!-- <h2>{{deleteTitle}}</h2> -->
   <form [formGroup]="deleteForm">
 

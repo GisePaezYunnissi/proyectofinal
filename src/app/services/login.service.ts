@@ -41,13 +41,14 @@ export class LoginService {
           this.token = response.token;
           //Se decodifica el token para despues obtener sus valores como user y userName
           const decodedToken: any = jwt_decode(this.token);
-          this.user = decodedToken?.user;
-          this.userName = decodedToken?.userName;
-          this.role = decodedToken?.role;
-          return true;
+            this.user = decodedToken?.user;
+            this.userName = decodedToken?.userName;
+            this.role = decodedToken?.role;
+            return true;
+
         } else {
-          this.token = null;
-          return false;
+            this.token = null;
+            return false;
         }
       })
     )

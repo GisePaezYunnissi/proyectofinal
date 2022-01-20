@@ -26,6 +26,6 @@ export class ProtectedGuardGuard implements CanActivate {
     console.log(isUserLoggedIn);
 
     return isUserLoggedIn;
-
+    //return true;
   }
 }

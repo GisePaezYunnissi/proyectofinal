@@ -1,4 +1,3 @@
-<p>carrito works!</p>
 <div class="container">
   <h1>Shopping Cart</h1>
 <table class="table">
@@ -16,13 +15,13 @@
       <td><img [src]="movie.url" alt="movie.title" style="height: 120px;"></td>
       <td>{{movie.title}}</td>
       <td>{{movie.price}}</td>
-      <td><button button type="button" class="btn btn-danger" (click)="removeMovie(movie.imdbID)">Delete</button></td>
+      <td><button button type="button" class="btn btn-primary" (click)="removeMovie(movie.imdbID)">Delete</button></td>
     </tr>
     <tr>
-      <td><button button type="button" class="btn btn-danger" (click)="clearCart()">Remove All</button></td>
+      <td><button button type="button" class="btn btn-primary" (click)="clearCart()">Remove All</button></td>
       <th>Total</th>
     </tr>
-    <button type="submit" class="btn btn-primary btn-block">Rent</button>
+    <!-- <button type="submit" class="btn btn-primary btn-block">Rent</button> -->
   </tbody>
 </table>
 </div>

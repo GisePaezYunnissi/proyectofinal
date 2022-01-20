@@ -43,8 +43,31 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
       url: this.uniquemovie.Poster,
       imdbID: this.uniquemovie.imdbID,
       price: 1000
-    }).subscribe(movie => alert("Tu película ha sido agregada con éxito")));
+    }).subscribe(response => {
+
+      console.log("carrito");
+      if (response.status==="OK"){
+        alert("Movie successfully added")
+      }else{
+        alert ("Movie already in cart")
+      }
+    }));
   }
+
+
+  //     alert("Tu película ha sido agregada con éxito")));
+  // }
+
+
+
+
+
+
+
+
+
+
+
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

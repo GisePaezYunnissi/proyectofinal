@@ -11,15 +11,16 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  ngOnInit(): void {
-  }
+  //Suscripción
+  private subscription = new Subscription;
 
   constructor (
     private loginService:LoginService,
-    private router: Router,) { }
+    private router: Router
+    ) { }
 
-    //Suscripción
-  private subscription = new Subscription;
+  ngOnInit(): void {
+  }
 
   userForm=new FormGroup({
     //voy agregando los controles
@@ -27,10 +28,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     password: new FormControl('',[Validators.required]),
   });
 
+  // para controlar el form
+  userControl=this.userForm.controls['user'];
+  passwordControl=this.userForm.controls['password'];
 
   loginValidate() {
     console.log (this.userForm.controls['user'].value,this.userForm.controls['password'].value);
-
     const valid = this.loginService.validateCredentials(this.userForm.controls['user'].value,this.userForm.controls['password'].value).subscribe(
       valid => {
         if (valid) {
