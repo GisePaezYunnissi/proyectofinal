@@ -1,18 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar">
   <div class="container">
-    <a class="nav-link" routerLink="/login">Login</a>
-    <!--<a class="navbar-brand" routerLink="/">Alquiler de Películas</a>-->
+    <h1 class="navbar-brand">Imagine Movie</h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon light"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" routerLinkActive="active" routerLink="peliculas">Movies</a>
-        <a class="nav-link" routerLinkActive="active" routerLink="mi-cuenta">My Account</a>
-        <a class="nav-link" routerLinkActive="active" routerLink="mostViews">Most Views</a>
-        <a class="nav-link" routerLinkActive="active" routerLink="cart">Movies Shop</a>
-        <a class="nav-link" routerLinkActive="active" routerLink="admin">Admin</a>
-      </div>
+      <ul class="navbar-nav">
+        <li><a class="nav-link" routerLink="/login">Login</a></li>
+        <li><a class="nav-link" routerLinkActive="active" routerLink="peliculas">Movies</a></li>
+        <!--<a class="nav-link" routerLinkActive="active" routerLink="mi-cuenta">My Account</a>-->
+        <li><a class="nav-link" routerLinkActive="active" routerLink="mostViews">Most Views</a></li>
+        <li><a class="nav-link" routerLinkActive="active" routerLink="cart">Movies Shop</a></li>
+        <li><a class="nav-link" routerLinkActive="active" routerLink="admin">Admin</a></li>
+      </ul>
     </div>
   </div>
 </nav>

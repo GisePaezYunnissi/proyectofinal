@@ -43,7 +43,7 @@ const routes: Routes = [
   },
   {
     path: 'cart',
-    canActivate: [AdminRoleGuardGuard],
+    canActivate: [ProtectedGuardGuard],
     component: CarritoComponent
   },
 
