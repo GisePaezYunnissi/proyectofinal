@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { CarritoComponent } from './components/carrito/carrito.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { HooksComponent } from './components/hooks/hooks.component';
@@ -19,6 +18,8 @@ import { MoviesInfoComponent } from './components/movies-info/movies-info.compon
 import { MostViewComponent } from './components/most-view/most-view.component';
 import { MostViewAdminComponent } from './components/most-view-admin/most-view-admin.component';
 import { InterceptorService } from './interceptors/interceptor.service';
+import { StoreModule } from '@ngrx/store';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
@@ -26,7 +27,6 @@ import { InterceptorService } from './interceptors/interceptor.service';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    CarritoComponent,
     MoviesInfoComponent,
     MoviesComponent,
     MenuComponent,
@@ -36,6 +36,7 @@ import { InterceptorService } from './interceptors/interceptor.service';
     MiCuentaComponent,
     MostViewComponent,
     MostViewAdminComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import { InterceptorService } from './interceptors/interceptor.service';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [
     {

@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ICart } from 'src/app/models/cart.model';
-//import { Movie } from 'src/app/models/movie.model';
-import { MovieAPI } from 'src/app/models/movieAPI.model';
 import { CartService } from 'src/app/services/cart.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './carrito.component.html',
-  styleUrls: ['./carrito.component.scss']
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.scss']
 })
-export class CarritoComponent implements OnInit {
+export class CartComponent implements OnInit {
 
   public list: ICart[] = [];
+
   constructor(
     private cartService: CartService) { };
 
@@ -44,3 +42,4 @@ export class CarritoComponent implements OnInit {
     this.list = [];
   }
 }
+

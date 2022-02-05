@@ -18,9 +18,7 @@
             placeholder="Password">
           <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty ||userForm.controls['password'].touched)"
             class="alert alert-danger">
-            <div *ngIf="userForm.controls['password'].hasError('required')">
-              Password is required
-            </div>
+            <div *ngIf="userForm.controls['password'].hasError('required')">Password is required</div>
           </div>
           <span id="passwordHelpInline" class="form-text">
             Debe tener entre 8 y 10 caracteres.
