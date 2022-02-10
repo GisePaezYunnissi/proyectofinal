@@ -45,16 +45,11 @@ const routes: Routes = [
     canActivate: [ProtectedGuardGuard],
     component: CartComponent
   },
-
- /*  {
-    path: 'detalle',
-    loadChildren: () => import('./components/movies/movies.component').then(m => m.MoviesComponent)
+  {
+    path: '' ,
+    component: LoginComponent,
+    data:{menu:false}
   },
-   {
-    path: 'mi-cuenta',
-    //canActivate: [ProtectedGuardGuard],
-    component: MiCuentaComponent
-  }, */
 ];
 
 @NgModule({

@@ -2,23 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  private url = environment.ApiMockMovies + 'users';
-
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  createUser(user: string, email: string, password: string): Observable<boolean>{
-    return this.httpClient.post<boolean>(this.url,{
-      user,
-      email,
-      password
-    })
+    url = `${environment.cartRestApi}register`;
+
+    getUser: User[] = []
+
+  createUser(user: User): Observable<any>{
+    return this.httpClient.post<User>(this.url, user);
+  }
+
+  getUsers(): Observable<User[]>{
+    return this.httpClient.get<User[]>(this.url);
   }
 }

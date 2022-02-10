@@ -20,6 +20,9 @@ import { MostViewAdminComponent } from './components/most-view-admin/most-view-a
 import { InterceptorService } from './interceptors/interceptor.service';
 import { StoreModule } from '@ngrx/store';
 import { CartComponent } from './components/cart/cart.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+//import { EffectsModule } from '@ngrx/effects';
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import { CartComponent } from './components/cart/cart.component';
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    StoreModule.forRoot({}, {})
+    //StoreModule.forRoot({app: appReducer}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    //EffectsModule.forRoot([])
   ],
   providers: [
     {
