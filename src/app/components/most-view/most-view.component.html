@@ -1,6 +1,6 @@
 <div class="container"></div>
 <div class="row">
-  <div class="card " style="width: 18rem;" >
+  <div class="card " *ngFor="let movie of allMovies" style="width: 18rem;" >
     <img [src]="movie.image" class="img-fluid rounded-start" alt="movie poster">
   </div>
     <div class="card-body">

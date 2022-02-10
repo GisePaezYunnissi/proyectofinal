@@ -35,7 +35,7 @@ export class MostViewComponent implements OnInit {
     this.subscription.add(this.mostViewService.getMovies()
       .subscribe(movies => {
         this.allMovies = movies;
-        console.log(this.allMovies);
+        console.table(this.allMovies);
     }));
   }
 
