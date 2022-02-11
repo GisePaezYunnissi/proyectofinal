@@ -1,21 +1,21 @@
-// import { createAction, props } from '@ngrx/store';
-// import { CartItem } from '../cart.model';
+import { createAction, props } from "@ngrx/store";
+import { ICart } from "src/app/models/cart.model";
 
-// export const cartAddItem = createAction(
-//   'Cart - Add item',
-//   props<{id:string, title:string, url:string}>()
-// );
+export const cartAddMovie = createAction(
+  'Cart - Add movie from cart',
+  props<{ movie: ICart }>()
+  );
 
-// export const cartDeleteItem = createAction(
-//   'Cart - Delete item',
-//   props<{itemId: number}>()
-// );
+  export const cartDeleteMovie = createAction(
+  'Cart - Delete from cart',
+  props<{ id: string }>()
+  );
 
-// export const cartSetContent = createAction(
-//   'Cart - Set cart content',
-//   props<{status:string, items: CartItem[]}>()
-// );
+  export const cartClear = createAction(
+  'Cart - Clear Cart',
+  );
 
-// export const cartClear= createAction(
-//   'Cart - Clear cart',
-// )
+  export const cartSetContent = createAction(
+  'Cart - Set cart content',
+  props<{ movies: ICart[] }>()
+  )

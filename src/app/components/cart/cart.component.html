@@ -14,14 +14,15 @@
       <th scope="row">{{i+1}}</th>
       <td><img [src]="movie.url" alt="Poster de la película" style="height: 120px;"></td>
       <td>{{movie.title}}</td>
-      <td>{{movie.price}}</td>
+      <td>${{movie.price}}</td>
       <td><button button type="button" class="btn btn-primary" (click)="removeMovie(movie.imdbID)">Delete</button></td>
     </tr>
     <tr>
-      <td><button button type="button" class="btn btn-primary" (click)="clearCart()">Remove All</button></td>
-      <th>Total</th>
+      <th scope="col">Total</th>
+      <th>${{total}}</th>
     </tr>
-    <!-- <button type="submit" class="btn btn-primary btn-block">Rent</button> -->
+    <button button type="button" class="btn btn-primary" (click)="clearCart()">Remove All</button>
   </tbody>
 </table>
+<button button type="button" class="btn btn-primary" (click)="Back()">Back to Movies</button>
 </div>

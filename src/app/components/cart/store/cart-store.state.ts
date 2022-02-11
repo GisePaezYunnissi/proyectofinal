@@ -1,5 +1,4 @@
-// import { MovieAPI } from "src/app/models/movieAPI.model";
-
-// export interface CartState {
-//   movies: MovieAPI[]
-// }
+import { ICart } from "src/app/models/cart.model";
+export interface CartState {
+  movies: ICart[]
+}

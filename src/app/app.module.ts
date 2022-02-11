@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { PersonaListComponent } from './components/persona-list/persona-list.component';
-import { PersonaItemComponent } from './components/persona-item/persona-item.component';
 import { MiCuentaComponent } from './components/mi-cuenta/mi-cuenta.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
@@ -20,7 +17,10 @@ import { InterceptorService } from './interceptors/interceptor.service';
 import { CartComponent } from './components/cart/cart.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-//import { EffectsModule } from '@ngrx/effects';
+import { EffectsModule } from '@ngrx/effects';
+import { cartReducer } from './components/cart/store/cart.reducer';
+import { StoreModule } from '@ngrx/store';
+import { CartEffects } from './components/cart/store/cart.effects';
 
 
 @NgModule({
@@ -31,8 +31,6 @@ import { environment } from '../environments/environment';
     MoviesInfoComponent,
     MoviesComponent,
     MenuComponent,
-    PersonaListComponent,
-    PersonaItemComponent,
     MiCuentaComponent,
     MostViewComponent,
     MostViewAdminComponent,
@@ -45,9 +43,9 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    //StoreModule.forRoot({app: appReducer}, {}),
+    StoreModule.forRoot({cart: cartReducer}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    //EffectsModule.forRoot([])
+    EffectsModule.forRoot([CartEffects]),
   ],
   providers: [
     {

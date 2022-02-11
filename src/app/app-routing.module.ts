@@ -32,12 +32,12 @@ const routes: Routes = [
   },
   {
     path: 'peliculas',
-    //canActivate: [ProtectedGuardGuard],
+    canActivate: [ProtectedGuardGuard],
     component: MoviesComponent
   },
   {
     path: 'peliculas/:id',
-    //canActivate: [ProtectedGuardGuard],
+    canActivate: [ProtectedGuardGuard],
     component: MoviesInfoComponent
   },
   {
