@@ -1,10 +1,11 @@
+import { IcuPlaceholder } from "@angular/compiler/src/i18n/i18n_ast";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { map, switchMap, tap } from "rxjs";
 import { ICart } from "src/app/models/cart.model";
 import { CartService } from "src/app/services/cart.service";
-import { cartAddMovie, cartDeleteMovie, cartSetContent } from "./cart.actions";
+import { cartAddMovie, cartClear, cartDeleteMovie, cartSetContent } from "./cart.actions";
 
 @Injectable()
 export class CartEffects {
@@ -31,12 +32,12 @@ export class CartEffects {
       map(data => cartSetContent({ movies: data.cartContent as ICart[] })),
     )
   );
-  // cartClean$ = createEffect(() =>
-  //   this.actions.pipe(
-  //     ofType(cartClear),
-  //     switchMap(action => this.cartService.clearCart()),
-  //     map(() => cartSetContent({ status: "CLEAN", movies: [] as MovieAPI[] })),
-  //   )
-  // );
+  cartClean$ = createEffect(() =>
+  this.actions.pipe(
+       ofType(cartClear),
+       switchMap(action => this.cartService.clearCart()),
+       map(() => cartSetContent({movies: [] as ICart[] })),
+     )
+ );
 }
 

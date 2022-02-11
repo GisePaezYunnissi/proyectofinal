@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { Subscription, tap } from 'rxjs';
 import { ICart } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
-import { cartDeleteMovie } from './store/cart.actions';
+import { cartClear, cartDeleteMovie } from './store/cart.actions';
 import { cartStateSelector } from './store/cart.selector';
 
 @Component({
@@ -54,15 +54,8 @@ export class CartComponent implements OnInit {
   }
 
   clearCart(){
-    this.list.forEach(movie =>{
-      this.subscription.add(this.cartService.removeMovie(movie.imdbID).subscribe(
-        moviex => {
-          console.log("Se vacio el carrito con éxito");
-        }
-      ))
-    });
+    this.store.dispatch(cartClear());
     this.list = [];
-    this.total = 0;
   }
 
   Back(){

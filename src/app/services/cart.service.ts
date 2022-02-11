@@ -25,5 +25,8 @@ export class CartService {
   removeMovie(id:string):Observable<any>{
     return this.httpClient.delete<boolean>(`${this.url}?id=${id}`);
   }
-}
 
+  clearCart(){
+    return this.httpClient.delete<any>(`${this.url}/clear`);
+  }
+}
