@@ -6,8 +6,8 @@ import { ICart } from 'src/app/models/cart.model';
 import { IUniqueMovie, MovieAPI } from 'src/app/models/movieAPI.model';
 import { CartService } from 'src/app/services/cart.service';
 import { MoviesInfoService } from 'src/app/services/movies-info.service';
+import Swal from 'sweetalert2';
 import { cartAddMovie } from '../cart/store/cart.actions';
-
 @Component({
   selector: 'app-movies-info',
   templateUrl: './movies-info.component.html',
@@ -21,7 +21,7 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
     private cartService: CartService,
     private router: Router,
     private store: Store
-  ) { }
+  ) { };
 
     private subscription = new Subscription;
 
@@ -35,7 +35,7 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
       imdbID:'' ,
       price: 0,
       status: false
-    }
+    };
 
  ngOnInit(): void {
     //Traigo desde la api
@@ -48,43 +48,25 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
       }
     ));
     this.cartService.getList().subscribe(movie => this.allmovies = movie);
-  }
+  };
 
   addToCart(){
-    this.movieToCart.id = "";
+    this.movieToCart.id = '';
     this.movieToCart.title = this.movie.Title;
     this.movieToCart.url = this.movie.Poster;
     this.movieToCart.price = 1000;
     this.movieToCart.imdbID = this.movie.imdbID;
     this.movieToCart.status = true;
 
-    this.store.dispatch(cartAddMovie({movie : this.movieToCart }))
-
-    // this.subscription.add(this.cartService.addMovie({
-      // id:''
-      // title: this.uniquemovie.Title,
-      // url: this.uniquemovie.Poster,
-      // imdbID: this.uniquemovie.imdbID,
-      // price: 1000,
-
-    //})
-    // .subscribe(response => {
-    //     console.log("carrito");
-
-      // if (response.status==="OK"){
-      //   alert("Movie successfully added")
-      // } else {
-      //   alert ("Movie already in cart")
-      //   }
-    // })
-    //);
-  }
+    this.store.dispatch(cartAddMovie({movie : this.movieToCart }));
+    Swal.fire("You added the movie", "Success");
+  };
 
   back() {
     this.router.navigate(['peliculas'])
-  }
+  };
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
+  };
 }

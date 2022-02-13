@@ -1,13 +1,12 @@
 <div class="container">
-<div class="row">
-  <div class="movie-container d-flex flex-wrap justify-content-center">
-    <mat-card class="example-card m-5" *ngFor="let movie of movies"  style="width: 18rem;">
-      <!-- style="display: flex; justify-content: center;align-items: center;height: 50px; text-align: center;" -->
-      <mat-card-header >
-        <h3 class="card-title" style="font-weight: bolder;">{{movie.Title}}</h3>
-      </mat-card-header>
-      <img mat-card-image [src]= "movie.Poster" alt="" style="height: 400px">
-<button  mat-raised-button color="primary" style="display:block; margin: 0px auto; width: 95%;" (click)="moreInfo(movie.imdbID)">Description</button>
-    </mat-card>
-</div>
+  <div class="row">
+    <div class="movie-container d-flex flex-wrap justify-content-center">
+      <mat-card class="example-card m-5" *ngFor="let movie of movies"  style="width: 18rem;">
+        <mat-card-header >
+          <h3 class="card-title" style="font-weight: bolder;">{{movie.Title}}</h3>
+        </mat-card-header>
+        <img mat-card-image [src]= "movie.Poster" alt="" style="height: 400px">
+        <button  mat-raised-button color="primary" style="display:block; margin: 0px auto; width: 95%;" (click)="moreInfo(movie.imdbID)">Description</button>
+      </mat-card>
+  </div>
 </div>

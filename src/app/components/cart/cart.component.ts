@@ -4,6 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { Subscription, tap } from 'rxjs';
 import { ICart } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
+import Swal from 'sweetalert2';
 import { cartClear, cartDeleteMovie } from './store/cart.actions';
 import { cartStateSelector } from './store/cart.selector';
 
@@ -33,33 +34,34 @@ export class CartComponent implements OnInit {
       })
     ).subscribe(data => {
       this.list = data.movies
-    })
+    });
 
     this.list.forEach(m => {
         this.total += m.price
-    })
+    });
     console.log(this.list);
-
-  }
+  };
 
   removeMovie(id:string){
-    console.log('el id:' +id)
+    console.log('el id:' +id);
 
     this.subscription.add(
       this.cartService.removeMovie(id).subscribe(data => console.log(data))
     )
     let index = this.list.findIndex(m => m.imdbID == id)
     this.total -= this.list[index].price
-    this.store.dispatch(cartDeleteMovie({id}))
-  }
+    this.store.dispatch(cartDeleteMovie({id}));
+    Swal.fire("The movie has been removed");
+  };
 
   clearCart(){
     this.store.dispatch(cartClear());
     this.list = [];
-  }
+    Swal.fire("The cart is emptied");
+  };
 
   Back(){
     this.router.navigate(['peliculas'])
-  }
+  };
 }
 

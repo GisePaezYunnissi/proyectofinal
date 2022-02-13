@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit(): void {
-  }
+  };
 
   userForm=new FormGroup({
     //voy agregando los controles
@@ -47,12 +46,12 @@ export class LoginComponent implements OnInit, OnDestroy {
         };
       }
     )
-  }
+  };
 
   ngOnDestroy(): void {
     //Nos desuscribimos
   this.subscription?.unsubscribe();
-  }
+  };
 
 }
 

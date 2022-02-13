@@ -15,10 +15,10 @@ export class MostViewService {
   constructor(
     //Inyección del servicio
     private httpClient : HttpClient,
-  ) { }
+  ) { };
 
   //Metodo que llama a todas la peliculas GET
   getMovies(): Observable<MockMovies[]>{
     return this.httpClient.get<MockMovies[]>(this.url);
-  }
+  };
 }

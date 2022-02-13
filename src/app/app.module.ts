@@ -7,7 +7,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { MiCuentaComponent } from './components/mi-cuenta/mi-cuenta.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 import { MoviesInfoComponent } from './components/movies-info/movies-info.component';
@@ -31,7 +30,6 @@ import { CartEffects } from './components/cart/store/cart.effects';
     MoviesInfoComponent,
     MoviesComponent,
     MenuComponent,
-    MiCuentaComponent,
     MostViewComponent,
     MostViewAdminComponent,
     CartComponent,

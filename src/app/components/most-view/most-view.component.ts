@@ -38,5 +38,4 @@ export class MostViewComponent implements OnInit {
         console.table(this.allMovies);
     }));
   }
-
 }

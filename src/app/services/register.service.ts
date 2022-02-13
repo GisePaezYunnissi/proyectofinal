@@ -11,7 +11,7 @@ export class RegisterService {
 
   constructor(
     private httpClient: HttpClient
-  ) { }
+  ) { };
 
     url = `${environment.cartRestApi}register`;
 
@@ -19,9 +19,9 @@ export class RegisterService {
 
   createUser(user: User): Observable<any>{
     return this.httpClient.post<User>(this.url, user);
-  }
+  };
 
   getUsers(): Observable<User[]>{
     return this.httpClient.get<User[]>(this.url);
-  }
+  };
 }

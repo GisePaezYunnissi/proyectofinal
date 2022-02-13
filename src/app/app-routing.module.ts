@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component';
-//import { MiCuentaComponent } from './components/mi-cuenta/mi-cuenta.component';
 import { MostViewAdminComponent } from './components/most-view-admin/most-view-admin.component';
 import { MostViewComponent } from './components/most-view/most-view.component';
 import { MoviesInfoComponent } from './components/movies-info/movies-info.component';

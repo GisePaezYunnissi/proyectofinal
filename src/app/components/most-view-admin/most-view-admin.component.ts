@@ -13,8 +13,8 @@ import { MostViewService } from 'src/app/services/most-view.service';
 export class MostViewAdminComponent implements OnInit, OnDestroy {
 
   //Título
-  updateTitle: string = ''
-  createTitle: string = ''
+  updateTitle: string = 'Edit the movie'
+  createTitle: string = 'Create the movie'
 
   //Contenedor de las pelis
   allMovies: MockMovies[] = [];
@@ -26,7 +26,6 @@ export class MostViewAdminComponent implements OnInit, OnDestroy {
   continue: number = -2;
 
    //Variable parametro a pasar
-
    movie: MockMovies = {
     id: '',
     title: '',
@@ -36,12 +35,12 @@ export class MostViewAdminComponent implements OnInit, OnDestroy {
     description: '',
     image: ''
 
-  }
+  };
 
   constructor(
     private adminService : MostViewAdminService,
     private mostViewService : MostViewService
-  ) { }
+  ) { };
 
   ngOnInit(): void {
     this.subscription.add(this.mostViewService.getMovies().subscribe(data => {
@@ -51,7 +50,6 @@ export class MostViewAdminComponent implements OnInit, OnDestroy {
   }
 
     //Formulario de edicion
-
     updateForm = new FormGroup ({
       id: new FormControl('',[Validators.required]),
       title: new FormControl(''),
@@ -95,7 +93,7 @@ export class MostViewAdminComponent implements OnInit, OnDestroy {
     } else {
       alert('You are looking for an unexisting movie');
     }
-  }
+  };
 
     //Formulario de creacion de pelicula
     createForm = new FormGroup({
@@ -107,7 +105,7 @@ export class MostViewAdminComponent implements OnInit, OnDestroy {
       adultsOnly: new FormControl('',[Validators.required])
     })
 
-    //Método de creacion
+  //Método de creacion
   createMovie() {
     this.subscription.add(this.adminService.addMovie(
       {
@@ -124,6 +122,7 @@ export class MostViewAdminComponent implements OnInit, OnDestroy {
       alert('Movie created')
     }));
   }
+
   //Formulario de eliminacion
   deleteForm = new FormGroup({
     id: new FormControl('', Validators.required)
@@ -140,5 +139,5 @@ export class MostViewAdminComponent implements OnInit, OnDestroy {
   };
 
   ngOnDestroy(): void {
-    }
+    };
 }

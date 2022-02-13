@@ -5,7 +5,7 @@ export const environment = {
   moviesApi: 'http://www.omdbapi.com/',
   keyApi: '&apikey=8070bceb',
 
-  //Carrito
+  //Carrito - Registro
   cartRestApi:'http://localhost:3000/api/',
 
   //MockApi

@@ -1,4 +1,3 @@
-import { IcuPlaceholder } from "@angular/compiler/src/i18n/i18n_ast";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
@@ -21,7 +20,6 @@ export class CartEffects {
       tap(() => console.log('entra')),
       switchMap(action => this.cartService.addMovie(action.movie)),
       map(data => cartSetContent({ movies: data.cartContent as ICart[] })),
-      //tap(() => this.router.navigate(['carrito']))
     )
   );
 

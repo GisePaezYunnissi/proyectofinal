@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .card {
+    background-color: #0a0a0a;
+    color: rgb(42, 116, 116);
+    .card-title{
+      font-size: 15px;
+    }
+  }
+}

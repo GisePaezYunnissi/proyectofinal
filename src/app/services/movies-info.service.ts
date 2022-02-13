@@ -15,10 +15,10 @@ export class MoviesInfoService {
 
   constructor(
     private httpclient: HttpClient,
-  ) { }
+  ) { };
 
   //Llamo a una pelicula por id
   getInfo( id: string): Observable<IUniqueMovie | undefined>{
     return this.httpclient.get<IUniqueMovie>(this.url+id+this.apiKey);
-  }
+  };
 }

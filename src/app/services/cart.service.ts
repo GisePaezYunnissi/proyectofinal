@@ -12,21 +12,21 @@ export class CartService {
 
   constructor(
     private httpClient: HttpClient,
-  ) {}
+  ) {};
 
   getList(): Observable<ICart[]>{
     return this.httpClient.get<ICart[]>(this.url);
-  }
+  };
 
   addMovie(movieToCart: ICart): Observable<any>{
     return this.httpClient.post<ICart>(this.url, movieToCart);
-  }
+  };
 
   removeMovie(id:string):Observable<any>{
     return this.httpClient.delete<boolean>(`${this.url}?id=${id}`);
-  }
+  };
 
   clearCart(){
     return this.httpClient.delete<any>(`${this.url}/clear`);
-  }
+  };
 }

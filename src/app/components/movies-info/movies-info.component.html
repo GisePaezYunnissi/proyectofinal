@@ -1,13 +1,14 @@
-<div class="container"></div>
-<div class="row">
-  <div class="card " style="width: 18rem;" >
-    <img [src]="movie?.Poster" class="img-fluid rounded-start" alt="movie poster">
-    <div class="card-body">
-      <h4 class="card-title">{{movie?.Title}}</h4>
-      <p class="card-text">{{movie?.Plot}}</p>
+<div class="container">
+  <div class="row">
+    <div class="card " style="width: 18rem;" >
+      <img [src]="movie?.Poster" class="img-fluid rounded-start" alt="movie poster">
+      <div class="card-body">
+        <h4 class="card-title">{{movie?.Title}}</h4>
+        <p class="card-text">{{movie?.Plot}}</p>
+      </div>
+      <button button type="button" class="btn-agregarAlCarrito" (click)="addToCart()">Add to cart</button>
+      <button buttom type="button" class="btn-agregarAlCarrito" (click)="back()">Back to Movies</button>
+    </div>
   </div>
-  <button button type="button" class="btn-agregarAlCarrito" (click)="addToCart()">Add to cart</button>
-  <button buttom type="button" class="btn-agregarAlCarrito" (click)="back()">Back to Movies</button>
 </div>
-
 

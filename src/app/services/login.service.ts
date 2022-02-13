@@ -16,19 +16,9 @@ export class LoginService {
   private userName = '';
   private role = '';
 
-  /* users:User[] = []; */
-
   constructor(
-    private httpClient : HttpClient){
-   /*  private userService: UserService) {
-      //le asigna al array usuario la rta del observador
-      this.userService.getUserList().subscribe(response => this.users = response); */
-    }
-
- /*  getUsers():User[]{
-    // Devuelve el array de usuario
-    return this.users;
-  } */
+    private httpClient : HttpClient
+  ){};
 
   private url = environment.cartRestApi + 'login';
 
@@ -45,22 +35,21 @@ export class LoginService {
             this.userName = decodedToken?.userName;
             this.role = decodedToken?.role;
             return true;
-
         } else {
             this.token = null;
             return false;
+          }
         }
-      })
-    )
-  }
+      ));
+  };
 
   getToken(): any{
     return this.token;
-  }
+  };
 
   isUserLoggedIn() {
     return this.user !== '';
-  }
+  };
 
   getUserInfo(): any {
     return {
@@ -68,5 +57,5 @@ export class LoginService {
       userName: this.userName,
       role: this.role
     }
-  }
+  };
 }
