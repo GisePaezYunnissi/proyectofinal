@@ -13,13 +13,12 @@ import { MoviesInfoComponent } from './components/movies-info/movies-info.compon
 import { MostViewComponent } from './components/most-view/most-view.component';
 import { MostViewAdminComponent } from './components/most-view-admin/most-view-admin.component';
 import { InterceptorService } from './interceptors/interceptor.service';
-import { CartComponent } from './components/cart/cart.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { cartReducer } from './components/cart/store/cart.reducer';
+import { cartReducer } from './features/cart/components/store/cart.reducer';
 import { StoreModule } from '@ngrx/store';
-import { CartEffects } from './components/cart/store/cart.effects';
+import { CartEffects } from './features/cart/components/store/cart.effects';
 
 
 @NgModule({
@@ -32,7 +31,6 @@ import { CartEffects } from './components/cart/store/cart.effects';
     MenuComponent,
     MostViewComponent,
     MostViewAdminComponent,
-    CartComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component';
 import { MostViewAdminComponent } from './components/most-view-admin/most-view-admin.component';
 import { MostViewComponent } from './components/most-view/most-view.component';
@@ -42,7 +41,7 @@ const routes: Routes = [
   {
     path: 'cart',
     canActivate: [ProtectedGuardGuard],
-    component: CartComponent
+    loadChildren: () => import('./features/cart/cart.module').then(c =>c.CartModule)
   },
   {
     path: '' ,

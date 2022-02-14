@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MovieAPI} from 'src/app/models/movieAPI.model';
-import { CartService } from 'src/app/services/cart.service';
+import { CartService } from 'src/app/features/cart/services/cart.service';
 import { MovieService } from 'src/app/services/movie.service';
 @Component({
   selector: 'app-movies',

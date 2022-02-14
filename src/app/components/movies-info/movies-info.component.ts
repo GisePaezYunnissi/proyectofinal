@@ -2,12 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { ICart } from 'src/app/models/cart.model';
+import { ICart } from 'src/app/features/cart/cart.model';
 import { IUniqueMovie, MovieAPI } from 'src/app/models/movieAPI.model';
-import { CartService } from 'src/app/services/cart.service';
+import { CartService } from 'src/app/features/cart/services/cart.service';
 import { MoviesInfoService } from 'src/app/services/movies-info.service';
 import Swal from 'sweetalert2';
-import { cartAddMovie } from '../cart/store/cart.actions';
+import { cartAddMovie } from '../../features/cart/components/store/cart.actions';
 @Component({
   selector: 'app-movies-info',
   templateUrl: './movies-info.component.html',
@@ -44,7 +44,7 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
       if (response != undefined) {
         this.movie = response;
       } else
-        alert("Esa película no existe");
+        alert("This movie does not exist");
       }
     ));
     this.cartService.getList().subscribe(movie => this.allmovies = movie);

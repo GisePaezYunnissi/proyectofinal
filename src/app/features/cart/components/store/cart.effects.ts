@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { map, switchMap, tap } from "rxjs";
-import { ICart } from "src/app/models/cart.model";
-import { CartService } from "src/app/services/cart.service";
+import { ICart } from "src/app/features/cart/cart.model";
+import { CartService } from "src/app/features/cart/services/cart.service";
 import { cartAddMovie, cartClear, cartDeleteMovie, cartSetContent } from "./cart.actions";
 
 @Injectable()
